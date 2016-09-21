@@ -43,7 +43,7 @@
                     <li><%= link_to 'Mi cuenta', home_index_path %></li>
                      <li><%= link_to 'Perfil',edit_user_registration_path%></li> 
                      <% if current_user.admin == true %>
-                        <li><%= link_to 'Perfil2',edit_user_registration_path%></li> 
+                        <li><%= link_to 'Administrar Usuarios', rails_admin.dashboard_path %></li> 
                       <% end %>
                     <li role="separator" class="divider"></li>
                     <li><%= link_to 'Cerrar Sessión', destroy_user_session_path, :method => 'DELETE' %></a></li>
