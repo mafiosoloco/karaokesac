@@ -36,8 +36,16 @@
               <% if current_user %>
                 <li class="dropdown">
                   <span class="hidden" id="userId"><%= current_user.id %></span>
+                   <span class="hidden" id="userId"><%= @auth.inspect %></span>
                   <a href="#" id="image-profile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                     <%= current_user.nombre %>    <%= image_tag('profiles/user1_profile.jpg', :class =>'img-responsive img-circle') %>
+                    
+                    <% if @auth!= nil %>
+                      <%= current_user.nombre %>    <%= image_tag(@auth['info']['image'], width:'60', height:'60', class:'img-circle') %>
+                      
+                    <% else %>
+                      <%= current_user.nombre %>    <%= image_tag('profiles/user1_profile.jpg', :class =>'img-responsive img-circle') %>
+                     
+                    <% end %>
                   </a>
                   <ul class="dropdown-menu">
                     <li><%= link_to 'Mi cuenta', home_index_path %></li>
